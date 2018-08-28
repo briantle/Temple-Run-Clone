@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
 	private CharacterController controller;
 	private Rigidbody[] bodies;
+    private bool jumped = false;
 	public float movementSpeed;
 	// Used to apply gravity to our character
 	public float verticalVelocity = 0.0f;
@@ -29,23 +30,34 @@ public class Player : MonoBehaviour
 		if (!anim.isPlaying)
 			anim.Play ();
 		Vector3 moveVector = Vector3.zero;
-		// If our player is on the ground, then reset the vertical velocity
-		if (controller.isGrounded)
-			verticalVelocity -= 0.5f;
-		// Otherwise, we want to apply gravity to make our character fall down.
-		// We are going to be using the gravity set in our project settings
-		else {
-			verticalVelocity -= gravity * Time.deltaTime;
-			// This is going to check if our player falls out of bounds
-			RaycastHit hit;
-			// If our character falls down and there isn't an object below him, he's dead
-			if (!Physics.Raycast (transform.position, -Vector3.up, out hit)) {
-				Debug.Log ("Player has fallen out of bounds");
-				// Ragdoll physics
-				setKinematic (false);
-				controller.enabled = false;
-			}
-		}
+        // If our player is on the ground, then reset the vertical velocity
+        if (controller.isGrounded)
+        {
+            verticalVelocity -= 0.5f;
+            jumped = false;
+        }
+        // Otherwise, we want to apply gravity to make our character fall down.
+        // We are going to be using the gravity set in our project settings
+        else
+        {
+            verticalVelocity -= gravity * Time.deltaTime;
+            // This is going to check if our player falls out of bounds
+            RaycastHit hit;
+            // If our character falls down and there isn't an object below him, he's dead
+            if (!Physics.Raycast(transform.position, -Vector3.up, out hit))
+            {
+                Debug.Log("Player has fallen out of bounds");
+                setDead();
+            }
+        }
+
+        if (Input.GetButtonDown("Jump") && !jumped)
+        {
+            Debug.Log("space pressed");
+            verticalVelocity = 10f;
+            jumped = true;
+        }
+
 		// Applies gravity to player
 		moveVector.y = verticalVelocity;
 		// Player can strafe left or right
@@ -55,9 +67,24 @@ public class Player : MonoBehaviour
 		// Player will constantly move forward
 		controller.Move (moveVector * Time.deltaTime);
 	}
+    public void setDead()
+    {
+        // Ragdoll physics
+        setKinematic(false);
+        // Disable animations
+        anim.enabled = false;
+        gameObject.GetComponent<Player>().enabled = false;
+
+    }
 	public void setKinematic(bool isKinematic)
 	{
 		foreach (Rigidbody rb in bodies)
 			rb.isKinematic = isKinematic;
 	}
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.tag == "Obstacle")
+            setDead();
+    }
 }
