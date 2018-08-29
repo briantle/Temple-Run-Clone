@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
 	void Update () 
 	{
 		if (!anim.isPlaying)
-			anim.Play ();
+			anim.Play ("Running");
 		Vector3 moveVector = Vector3.zero;
         // If our player is on the ground, then reset the vertical velocity
         if (controller.isGrounded)
@@ -53,7 +53,8 @@ public class Player : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && !jumped)
         {
-            Debug.Log("space pressed");
+			anim.Stop ();
+			anim.Play ("Jumping");
             verticalVelocity = 10f;
             jumped = true;
         }

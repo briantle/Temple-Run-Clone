@@ -5,16 +5,17 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour {
 
 	public Transform playerTransform;
-	private Vector3 startOffset;
+	private Vector3 offset;
+	private Vector3 moveVector;
 
 	// Use this for initialization
 	void Start () {
 		playerTransform = GameObject.FindGameObjectWithTag ("Player").transform;
-		startOffset = transform.position - playerTransform.position;
+		offset = transform.position - playerTransform.position;
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		transform.position = playerTransform.position + startOffset;
+	void LateUpdate () {
+		transform.position = playerTransform.position + offset;
 	}
 }
