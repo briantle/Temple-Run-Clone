@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
         {
 			anim.Stop ();
 			anim.Play ("Jumping");
-            verticalVelocity = 10f;
+            verticalVelocity = 8f;
             jumped = true;
         }
 
