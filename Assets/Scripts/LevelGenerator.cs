@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour {
 
-	public float distanceToInstantiate = 50f;
+	public float distanceToInstantiate = 100f;
 	public GameObject platform;
+	public GameObject wallTrap;
 	private Vector3 currPosition = Vector3.zero;
 
 	void Update(){

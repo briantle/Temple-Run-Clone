@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.gameObject.tag == "Obstacle")
+        if (hit.gameObject.tag == "Trap")
             setDead();
     }
 }

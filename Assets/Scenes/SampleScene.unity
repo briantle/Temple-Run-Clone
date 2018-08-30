@@ -359,7 +359,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceToInstantiate: 50
-  platform: {fileID: 1071969866437058, guid: 18827c03805126841addbea9e4cdfe2e, type: 2}
+  platform: {fileID: 1077839305656804, guid: 18827c03805126841addbea9e4cdfe2e, type: 2}
+  wallTrap: {fileID: 1798357633675926, guid: 50a422bd618cb594cbfa3c5652a6dd43, type: 2}
 --- !u!4 &323254479
 Transform:
   m_ObjectHideFlags: 0
@@ -1118,7 +1119,7 @@ Animation:
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 1
-  m_CullingType: 0
+  m_CullingType: 1
 --- !u!143 &1343310836
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1240,6 +1241,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeText: {fileID: 84387670}
+  finalTime: 0
+  playa: {fileID: 0}
 --- !u!114 &1880961559
 MonoBehaviour:
   m_ObjectHideFlags: 0
