@@ -50,12 +50,15 @@ public class Player : MonoBehaviour
                 setDead();
             }
         }
-
+		// Player is allowed to jump, but not double jump
         if (Input.GetButtonDown("Jump") && !jumped)
         {
+			// Stop the running animation and play the jumping animation
 			anim.Stop ();
 			anim.Play ("Jumping");
-            verticalVelocity = 8f;
+			// How high the player will jump
+            verticalVelocity = 6.5f;
+			// Prevents double jump
             jumped = true;
         }
 
