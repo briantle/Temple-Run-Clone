@@ -13,7 +13,7 @@ public class LevelGenerator : MonoBehaviour {
 		Transform trans = gameObject.transform;
 		if (Vector3.Distance(Camera.main.transform.position, currPosition) < distanceToInstantiate){
 				Instantiate(platform, currPosition, trans.rotation, gameObject.transform);
-				currPosition += new Vector3(0, 0, 10);
+				currPosition += new Vector3(Random.Range(-2, 3), Random.Range(-1, 2), Random.Range(10, 13));
 		}
 	}
 }
