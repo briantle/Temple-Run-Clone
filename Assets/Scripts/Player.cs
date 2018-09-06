@@ -11,11 +11,11 @@ public class Player : MonoBehaviour
 	// Used to apply gravity to our character
 	public float verticalVelocity = 0.0f;
 	public float gravity = 12f;
-	public Animation anim;
+    public Animator anim;
 
 	// Use this for initialization
 	void Start () {
-		anim = GetComponent<Animation> ();
+        anim = GetComponent<Animator>();
 		bodies = GetComponentsInChildren<Rigidbody> ();
 		setKinematic (true);
 		controller = gameObject.GetComponent<CharacterController> ();
@@ -27,8 +27,6 @@ public class Player : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if (!anim.isPlaying)
-			anim.Play ("Running");
 		Vector3 moveVector = Vector3.zero;
         // If our player is on the ground, then reset the vertical velocity
         if (controller.isGrounded)
@@ -39,23 +37,13 @@ public class Player : MonoBehaviour
         // Otherwise, we want to apply gravity to make our character fall down.
         // We are going to be using the gravity set in our project settings
         else
-        {
             verticalVelocity -= gravity * Time.deltaTime;
-            // This is going to check if our player falls out of bounds
-            RaycastHit hit;
-            // If our character falls down and there isn't an object below him, he's dead
-            if (!Physics.Raycast(transform.position, -Vector3.up, out hit))
-            {
-                Debug.Log("Player has fallen out of bounds");
-                setDead();
-            }
-        }
+
 		// Player is allowed to jump, but not double jump
         if (Input.GetButtonDown("Jump") && !jumped)
         {
 			// Stop the running animation and play the jumping animation
-			anim.Stop ();
-			anim.Play ("Jumping");
+
 			// How high the player will jump
             verticalVelocity = 6.5f;
 			// Prevents double jump
@@ -75,7 +63,7 @@ public class Player : MonoBehaviour
     {
         // Ragdoll physics
         setKinematic(false);
-        // Disable animations
+        // Disable animator 
         anim.enabled = false;
         gameObject.GetComponent<Player>().enabled = false;
 
