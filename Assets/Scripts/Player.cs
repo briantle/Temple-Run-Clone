@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour 
 {
-	private CharacterController controller;
+    private Animator anim;
+    private CharacterController controller;
 	private Rigidbody[] bodies;
     private bool jumped = false;
 	public float movementSpeed;
 	// Used to apply gravity to our character
 	public float verticalVelocity = 0.0f;
 	public float gravity = 12f;
-    public Animator anim;
 
 	// Use this for initialization
 	void Start () {
@@ -32,6 +32,8 @@ public class Player : MonoBehaviour
         if (controller.isGrounded)
         {
             verticalVelocity -= 0.5f;
+            anim.SetBool("Jump", false);
+            anim.SetBool("Running", true);
             jumped = false;
         }
         // Otherwise, we want to apply gravity to make our character fall down.
@@ -42,8 +44,9 @@ public class Player : MonoBehaviour
 		// Player is allowed to jump, but not double jump
         if (Input.GetButtonDown("Jump") && !jumped)
         {
-			// Stop the running animation and play the jumping animation
-
+            // Stop the running animation and play the jumping animation
+            anim.SetBool("Running", false);
+            anim.SetBool("Jump", true);
 			// How high the player will jump
             verticalVelocity = 6.5f;
 			// Prevents double jump
@@ -66,17 +69,10 @@ public class Player : MonoBehaviour
         // Disable animator 
         anim.enabled = false;
         gameObject.GetComponent<Player>().enabled = false;
-
     }
 	public void setKinematic(bool isKinematic)
 	{
 		foreach (Rigidbody rb in bodies)
 			rb.isKinematic = isKinematic;
 	}
-
-    private void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        if (hit.gameObject.tag == "Trap")
-            setDead();
-    }
 }

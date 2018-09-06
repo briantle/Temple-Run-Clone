@@ -659,6 +659,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 52bda54d1b298cf4999c8c99c81ac751, type: 3}
+      propertyPath: m_UpdateMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52bda54d1b298cf4999c8c99c81ac751, type: 3}
   m_IsPrefabAsset: 0
@@ -1657,7 +1661,6 @@ MonoBehaviour:
   movementSpeed: 0
   verticalVelocity: 0
   gravity: 12
-  anim: {fileID: 0}
 --- !u!111 &1343310835
 Animation:
   m_ObjectHideFlags: 0
@@ -2119,7 +2122,6 @@ MonoBehaviour:
   movementSpeed: 0
   verticalVelocity: 0
   gravity: 12
-  anim: {fileID: 0}
 --- !u!1 &1880961557
 GameObject:
   m_ObjectHideFlags: 0
