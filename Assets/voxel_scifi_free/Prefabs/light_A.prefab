@@ -37,7 +37,6 @@ GameObject:
   - component: {fileID: 4692433924265042}
   - component: {fileID: 33014634487946516}
   - component: {fileID: 23349624042461332}
-  - component: {fileID: 95923466202574314}
   - component: {fileID: 65096621498283916}
   m_Layer: 0
   m_Name: light_A
@@ -210,24 +209,6 @@ Animator:
   m_GameObject: {fileID: 1692027003111042}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: ebb322b788228184089c4d7b0f7e48c8, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!95 &95923466202574314
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1179709646199366}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 6ece8d193584cea45912d4ce7950a9f6, type: 3}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0

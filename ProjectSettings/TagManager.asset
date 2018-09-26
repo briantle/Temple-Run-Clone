@@ -9,6 +9,7 @@ TagManager:
   - Falling
   - Absinthe
   - Powerup
+  - Obstacle
   layers:
   - Default
   - TransparentFX

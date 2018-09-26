@@ -8,10 +8,12 @@ public class Player : MonoBehaviour
     private CharacterController controller;
 	private Rigidbody[] bodies;
     private bool jumped = false;
-	public float movementSpeed;
+	public float movementSpeed = 5f;
 	// Used to apply gravity to our character
 	public float verticalVelocity = 0.0f;
+	public float jumpHeight = 1f;
 	public float gravity = 12f;
+	public bool invulnerable = false;
 
 	// Use this for initialization
 	void Start () {
@@ -21,7 +23,7 @@ public class Player : MonoBehaviour
 		controller = gameObject.GetComponent<CharacterController> ();
 		// if forgot to set a value for the speed, default it to 5
 		if (movementSpeed == 0)
-			movementSpeed = 5f;
+			movementSpeed = 8f;
 	}
 	
 	// Update is called once per frame
@@ -48,7 +50,7 @@ public class Player : MonoBehaviour
             anim.SetBool("Running", false);
             anim.SetBool("Jump", true);
 			// How high the player will jump
-            verticalVelocity = 6.5f;
+			verticalVelocity = 6.5f * jumpHeight;
 			// Prevents double jump
             jumped = true;
         }
@@ -75,4 +77,6 @@ public class Player : MonoBehaviour
 		foreach (Rigidbody rb in bodies)
 			rb.isKinematic = isKinematic;
 	}
+
+
 }

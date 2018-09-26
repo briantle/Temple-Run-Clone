@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4176216229701232}
   - component: {fileID: 33076935860609032}
   - component: {fileID: 23960683115149664}
-  - component: {fileID: 95559486236550918}
   - component: {fileID: 65448197986742176}
   m_Layer: 0
   m_Name: floor_tile01
@@ -97,21 +96,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.7001095, y: 2.7000005, z: 0.90000033}
   m_Center: {x: -0.000054597855, y: 0.00000005960466, z: 0.45000005}
---- !u!95 &95559486236550918
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1799557203254782}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: c2b3166827abc4443a529a721db19c83, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0

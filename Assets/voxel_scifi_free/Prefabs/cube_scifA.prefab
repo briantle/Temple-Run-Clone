@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4940499698117822}
   - component: {fileID: 33179339323588534}
   - component: {fileID: 23133127351168778}
-  - component: {fileID: 95438386254077222}
   - component: {fileID: 65244416297966686}
   m_Layer: 0
   m_Name: cube_scifA
@@ -97,21 +96,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.9, y: 0.9000006, z: 0.9000004}
   m_Center: {x: 0, y: 0, z: 0.45000002}
---- !u!95 &95438386254077222
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1915620986865270}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: a3058018622a9764c8caa259b37ba39e, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0

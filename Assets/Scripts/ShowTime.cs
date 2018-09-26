@@ -1,13 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class ShowTime : MonoBehaviour {
 
 	public Text timeText;
-    public Text fpsText;
+	public Text currentLevel;
     private float deltaTime;
-	public float finalTime = 0f;
 	private Player playa;
 	
 	void Start(){
@@ -17,14 +15,12 @@ public class ShowTime : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        // Shows Framerate, this is to know how our game is performing
-        deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
-        float fps = 1.0f / deltaTime;
-        fpsText.text = Mathf.Ceil(fps).ToString();
         // As long as the player is alive, we want to keep a timer of how longer they have been running
         if (playa.enabled){
-			timeText.text = "Time: " + (int) Time.realtimeSinceStartup;
-			finalTime = Time.realtimeSinceStartup;
+			currentLevel.text = "Level: " + SceneManager.GetActiveScene ().name;
+			timeText.text = "Time: " + (int) Time.timeSinceLevelLoad;
+			if (Time.timeSinceLevelLoad >= 30f)
+				SceneManager.LoadScene ("Win");
 		}
 	}
 }
